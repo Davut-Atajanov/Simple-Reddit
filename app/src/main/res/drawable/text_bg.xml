@@ -1,0 +1,8 @@
+<!-- res/drawable/edit_text_rounded_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#93CFDA"/>
+    <!-- White color for the EditText background -->
+    <corners android:radius="15dp" />
+</shape>
+
+    <!-- For the Spinner, you might create a similar drawable or adjust the EditText one as needed -->
