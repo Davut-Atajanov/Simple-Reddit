@@ -3,9 +3,9 @@ package com.davutatajanov.redditclone.db
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.davutatajanov.redditclone.db.BlogPostRepository
+import com.davutatajanov.redditclone.posts.RetrofitService
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
