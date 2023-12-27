@@ -44,6 +44,10 @@ class Feed : AppCompatActivity() , GestureDetector.OnGestureListener,
         binding.postRV.setLayoutManager(LinearLayoutManager(this))
         binding.postRV.adapter = adapter
 
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
+
 
     }
 
