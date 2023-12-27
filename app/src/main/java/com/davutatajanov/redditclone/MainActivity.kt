@@ -2,15 +2,18 @@ package com.davutatajanov.redditclone
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import android.os.Bundle
 import android.util.Log
 import android.view.WindowManager
 import androidx.lifecycle.ViewModelProvider
+import com.davutatajanov.redditclone.adapter.CustomRecyclerViewAdapter
 import com.davutatajanov.redditclone.databinding.ActivityMainBinding
 import com.davutatajanov.redditclone.db.BlogPost
 import com.davutatajanov.redditclone.db.BlogPostViewModel
 import com.davutatajanov.redditclone.posts.AddPost
 import com.davutatajanov.redditclone.posts.Feed
+import com.davutatajanov.redditclone.posts.FeedContent
 import com.davutatajanov.redditclone.posts.RetrofitService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -55,6 +58,7 @@ class MainActivity : AppCompatActivity() {
             try {
                 val blogPosts = RetrofitService.apiService.getBlogPosts()
                 // Update LiveData or state here
+                FeedContent.posts = blogPosts
                 Log.d("MainActivity", blogPosts.toString())
             } catch (e: Exception) {
                 // Handle the exception

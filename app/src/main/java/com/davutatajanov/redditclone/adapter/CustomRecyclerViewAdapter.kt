@@ -11,11 +11,12 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.davutatajanov.redditclone.R
 import com.davutatajanov.redditclone.db.BlogPost
+import com.davutatajanov.redditclone.posts.PostModel
 
 
 class CustomRecyclerViewAdapter(private val context: Context):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var recyclerItemValues = emptyList<BlogPost>()
-    fun setData(items:List<BlogPost>){
+    private var recyclerItemValues = emptyList<PostModel>()
+    fun setData(items:List<PostModel>){
         recyclerItemValues = items
         notifyDataSetChanged()
     }

@@ -49,8 +49,10 @@ class Feed : AppCompatActivity() , GestureDetector.OnGestureListener,
 
     fun getData() {
         //Whenever data is changed that change will refresh the recyclerview
-        blogPostViewModel.readAllData.observe(this, Observer { blogPosts ->
-            adapter.setData(blogPosts)
+        blogPostViewModel.readAllData.observe(this, Observer {
+            Log.d("Feed Activity", FeedContent.posts.toString())
+            val posts = FeedContent.posts.shuffled()
+            adapter.setData(posts)
         })
     }
 
