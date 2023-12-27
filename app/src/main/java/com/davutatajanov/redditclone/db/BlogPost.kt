@@ -10,14 +10,14 @@ import java.util.Date
 class BlogPost(
     @PrimaryKey(autoGenerate = true)
     var postId:Int=0,
-    //var current_date:Date=Date(),
+    var current_date:String,
     var title: String,
     val content:String,
     var topic: String
-    )
+)
 {
 
     override fun toString(): String {
-        return "\nBlogPost\nPostID: ${postId}, Title: $title, Topic: $topic\n Content:\n: $content\n"
+        return "\nBlogPost\nPostID: ${postId},Current Date:${current_date} Title: $title, Topic: $topic\n Content:\n: $content\n"
     }
 }

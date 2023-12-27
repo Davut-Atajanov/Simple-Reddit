@@ -80,4 +80,16 @@
         android:padding="12dp"
         android:src="@drawable/back_arrow" />
 
+    <Button
+        android:id="@+id/postButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="15dp"
+        android:text="POST"
+        android:textSize="20sp"
+        app:cornerRadius="10dp" />
+
 </RelativeLayout>
