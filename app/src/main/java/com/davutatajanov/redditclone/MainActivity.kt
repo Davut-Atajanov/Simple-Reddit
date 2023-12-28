@@ -12,6 +12,7 @@ import com.davutatajanov.redditclone.adapter.CustomRecyclerViewAdapter
 import com.davutatajanov.redditclone.databinding.ActivityMainBinding
 import com.davutatajanov.redditclone.db.BlogPost
 import com.davutatajanov.redditclone.db.BlogPostViewModel
+import com.davutatajanov.redditclone.home.HomeActivity
 import com.davutatajanov.redditclone.posts.AddPost
 import com.davutatajanov.redditclone.posts.Feed
 import com.davutatajanov.redditclone.posts.FeedContent
@@ -77,6 +78,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.feedBtn.setOnClickListener {
             val intent2 = Intent(this, Feed::class.java)
+            startActivity(intent2)
+        }
+
+        binding.profileBtn.setOnClickListener {
+            val intent2 = Intent(this, HomeActivity::class.java)
             startActivity(intent2)
         }
 
