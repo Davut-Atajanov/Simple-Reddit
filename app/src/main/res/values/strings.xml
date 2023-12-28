@@ -1,6 +1,17 @@
 <resources>
     <string name="app_name">RedditClone</string>
-    <string name="title_activity_second">SecondActivity</string>
     <string name="feed">Feed</string>
     <string name="post">POST</string>
+
+    <string-array name="categories">
+        <item>Romance</item>
+        <item>Sports</item>
+        <item>Education</item>
+        <item>Economy</item>
+        <item>Leisure</item>
+        <item>ChildCare</item>
+        <item>Marriage</item>
+        <item>History</item>
+        <item>Science</item>
+    </string-array>
 </resources>

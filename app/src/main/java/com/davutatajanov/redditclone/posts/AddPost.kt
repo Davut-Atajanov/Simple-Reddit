@@ -1,5 +1,6 @@
 package com.davutatajanov.redditclone.posts
 
+import android.graphics.Color
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +11,9 @@ import com.davutatajanov.redditclone.R
 import com.davutatajanov.redditclone.databinding.ActivityAddPostBinding
 import com.davutatajanov.redditclone.db.BlogPost
 import com.davutatajanov.redditclone.db.BlogPostViewModel
+import nl.dionsegijn.konfetti.KonfettiView
+import nl.dionsegijn.konfetti.models.Shape
+import nl.dionsegijn.konfetti.models.Size
 import java.util.Date
 
 class AddPost : AppCompatActivity() {
@@ -24,8 +28,10 @@ class AddPost : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
+
         binding = ActivityAddPostBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         mediaPlayer = MediaPlayer.create(this, R.raw.sound_file)
         blogPostViewModel = ViewModelProvider(this).get(BlogPostViewModel::class.java)
@@ -33,10 +39,10 @@ class AddPost : AppCompatActivity() {
         binding.postButton.setOnClickListener{
             addBlogPost()
         }
-
         binding.btnBack.setOnClickListener {
             finish()
         }
+
     }
     fun addBlogPost(){
         var title=binding.etPostTitle.text.toString()

@@ -30,6 +30,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     private lateinit var blogPostViewModel: BlogPostViewModel
 
+    private var clickCount = 0
+    private val requiredClicks = 5
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         getSupportActionBar()?.hide()
@@ -47,6 +50,25 @@ class MainActivity : AppCompatActivity() {
 
         blogPostViewModel = ViewModelProvider(this).get(BlogPostViewModel::class.java)
         prepareData()
+
+        val konfettiView = findViewById<KonfettiView>(R.id.viewKonfetti)
+        binding.imageView2.setOnClickListener {
+            clickCount++
+            if (clickCount >= requiredClicks) {
+                konfettiView.build()
+                    .addColors(Color.YELLOW, Color.GREEN, Color.MAGENTA)
+                    .setDirection(0.0, 359.0)
+                    .setSpeed(1f, 5f)
+                    .setFadeOutEnabled(true)
+                    .setTimeToLive(1000L)
+                    .addShapes(Shape.Square, Shape.Circle)
+                    .addSizes(Size(12))
+                    .setPosition(-50f, konfettiView.width + 50f, -50f, -50f)
+                    .streamFor(300, 2000L)
+
+                clickCount = 0 // Reset the counter
+            }
+        }
 
         binding.postBtn.setOnClickListener {
             val intent = Intent(this, AddPost::class.java)
@@ -71,17 +93,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        val konfettiView = findViewById<KonfettiView>(R.id.viewKonfetti)
-        konfettiView.build()
-            .addColors(Color.YELLOW, Color.GREEN, Color.MAGENTA)
-            .setDirection(0.0, 359.0)
-            .setSpeed(1f, 5f)
-            .setFadeOutEnabled(true)
-            .setTimeToLive(2000L)
-            .addShapes(Shape.RECT, Shape.CIRCLE)
-            .addSizes(Size(12), Size(16, 6f))
-            .setPosition(-50f, konfettiView.width + 50f, -50f, -50f)
-            .streamFor(300, 5000L)
     }
 
     fun prepareData() {

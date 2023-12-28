@@ -34,7 +34,7 @@
         app:srcCompat="@drawable/rect_tilted" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/appIcon"
         android:layout_width="187dp"
         android:layout_height="173dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView4"
@@ -85,6 +85,18 @@
     <nl.dionsegijn.konfetti.KonfettiView
         android:id="@+id/viewKonfetti"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="187dp"
+        android:layout_height="173dp"
+        android:rotation="135"
+        app:layout_constraintBottom_toBottomOf="@+id/appIcon"
+        app:layout_constraintEnd_toEndOf="@+id/appIcon"
+        app:layout_constraintStart_toStartOf="@+id/appIcon"
+        app:layout_constraintTop_toTopOf="@+id/appIcon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

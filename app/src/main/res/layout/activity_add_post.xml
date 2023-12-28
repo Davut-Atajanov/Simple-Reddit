@@ -61,6 +61,7 @@
         android:layout_below="@id/etPostContent"
         android:layout_marginTop="8dp"
         android:background="@drawable/text_bg"
+        android:entries="@array/categories"
         android:padding="12dp" />
 
     <!-- Back Button -->
@@ -105,5 +106,10 @@
         android:text="@string/post"
         android:textColor="#FAF7F7"
         android:textSize="25dp" />
+
+    <nl.dionsegijn.konfetti.KonfettiView
+        android:id="@+id/viewKonfetti"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </RelativeLayout>
