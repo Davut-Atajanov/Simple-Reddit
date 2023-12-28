@@ -16,16 +16,15 @@ class BlogPostViewModel(application:Application):AndroidViewModel(application) {
     val readAllData: LiveData<List<BlogPost>>
     private val repository:BlogPostRepository
     init {
-        val StudentDAO= BlogPostRoomDatabase.getDatabase(application).BlogPostDao()
-        repository = BlogPostRepository(StudentDAO)
+        val studentDAO= BlogPostRoomDatabase.getDatabase(application).BlogPostDao()
+        repository = BlogPostRepository(studentDAO)
         readAllData = repository.readAlldata
     }
-    fun addBlogPost(BlogPost:BlogPost){
+    fun addBlogPost(blogPost:BlogPost){
         viewModelScope.launch(Dispatchers.IO){ // that code will be run in background thread, coroutine scope
-            repository.insertBlogPost(BlogPost)
+            repository.insertBlogPost(blogPost)
         }
     }
-    // Function to get a student by ID using coroutines
     fun getBlogPostById(id: Int, onSuccess: (BlogPost) -> Unit, onError: (Exception) -> Unit) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
@@ -42,16 +41,16 @@ class BlogPostViewModel(application:Application):AndroidViewModel(application) {
             }
         }
     }
-    fun addBlogPosts(BlogPost: List<BlogPost>){
+    fun addBlogPosts(blogPost: List<BlogPost>){
         viewModelScope.launch(Dispatchers.IO) { // that code will be run in background thread, coroutine scope
-            BlogPost.forEach{
+            blogPost.forEach{
                 repository.insertBlogPost(it)
             }
         }
     }
-    fun deleteBlogPost(BlogPost:BlogPost){
+    fun deleteBlogPost(blogPost:BlogPost){
         viewModelScope.launch(Dispatchers.IO){ // that code will be run in background thread, coroutine scope
-            repository.deleteBlogPost(BlogPost)
+            repository.deleteBlogPost(blogPost)
         }
     }
     fun deleteAllBlogPosts(){
@@ -59,9 +58,9 @@ class BlogPostViewModel(application:Application):AndroidViewModel(application) {
             repository.deleteAllBlogPosts()
         }
     }
-    fun updateBlogPost(BlogPost:BlogPost){
+    fun updateBlogPost(blogPost:BlogPost){
         viewModelScope.launch(Dispatchers.IO){ // that code will be run in background thread, coroutine scope
-            repository.updateBlogPost(BlogPost)
+            repository.updateBlogPost(blogPost)
         }
     }
 }
