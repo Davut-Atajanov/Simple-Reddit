@@ -21,25 +21,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/listViewCategory"
-        android:layout_width="358dp"
-        android:layout_height="122dp"
-        android:layout_marginTop="60dp"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerCategory"
+        android:name="com.davutatajanov.redditclone.fragments.CategoryFragment"
+        android:layout_width="364dp"
+        android:layout_height="151dp"
+        android:layout_marginTop="68dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/listViewPersonalPosts"
-        android:layout_width="358dp"
-        android:layout_height="494dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerPosts"
+        android:name="com.davutatajanov.redditclone.fragments.PostsFragment"
+        android:layout_width="357dp"
+        android:layout_height="427dp"
+        android:layout_marginTop="52dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listViewCategory" />
+        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerCategory" />
     <!--        app:layout_constraintBottom_toTopOf="@+id/postRV"-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

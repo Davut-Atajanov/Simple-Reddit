@@ -11,43 +11,28 @@ import androidx.lifecycle.ViewModelProvider
 import com.davutatajanov.redditclone.R
 import com.davutatajanov.redditclone.db.BlogPost
 import com.davutatajanov.redditclone.db.BlogPostViewModel
+import com.davutatajanov.redditclone.fragments.CategoryFragment
+import com.davutatajanov.redditclone.fragments.PostsFragment
 import com.davutatajanov.redditclone.posts.FeedContent
-
 class HomeActivity : AppCompatActivity() {
 
-    private lateinit var blogPostViewModel: BlogPostViewModel
-    lateinit var listViewTitle: ListView
-    lateinit var listViewPersonalPosts: ListView
+    private lateinit var categoryFragment: CategoryFragment
+    private lateinit var postsFragment: PostsFragment
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        listViewTitle = findViewById(R.id.listViewCategory)
-        listViewPersonalPosts = findViewById(R.id.listViewPersonalPosts)
-        blogPostViewModel = ViewModelProvider(this).get(BlogPostViewModel::class.java)
 
+        categoryFragment = CategoryFragment()
+        postsFragment = PostsFragment()
 
-        blogPostViewModel.readAllData.observe(this, Observer { it ->
-            val uniqueContentValues = it.distinctBy { it.topic }
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainerCategory, categoryFragment)
+            .replace(R.id.fragmentContainerPosts, postsFragment)
+            .commit()
 
-            val titles = uniqueContentValues.map { it.topic }
-
-            val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, titles)
-            val postAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, it)
-
-            // Set the adapter to the ListView
-            listViewTitle.adapter = adapter
-            listViewPersonalPosts.adapter = postAdapter
-            Log.d("Personal Posts",titles.toString())
-
-            listViewTitle.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
-                val selectedTitle = titles[position]
-                // Exclude posts with the selected title from it
-                val selectedPosts = it.filterNot { it.topic == selectedTitle }
-
-                val postAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, selectedPosts)
-                listViewPersonalPosts.adapter = postAdapter
-            }
-
-        })
+        categoryFragment.setOnCategorySelectedListener { category ->
+            postsFragment.updatePosts(category)
+        }
     }
 }
