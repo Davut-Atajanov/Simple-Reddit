@@ -4,7 +4,10 @@ import android.graphics.Color
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.WindowManager
+import android.widget.AdapterView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.davutatajanov.redditclone.R
@@ -37,24 +40,25 @@ class AddPost : AppCompatActivity() {
         blogPostViewModel = ViewModelProvider(this).get(BlogPostViewModel::class.java)
 
         binding.postButton.setOnClickListener{
-            addBlogPost()
+            addBlogPost(binding.spinnerPostCategory.selectedItem.toString())
         }
         binding.btnBack.setOnClickListener {
             finish()
         }
 
     }
-    fun addBlogPost(){
+    fun addBlogPost(category:String){
         var title=binding.etPostTitle.text.toString()
         var content=binding.etPostContent.text.toString()
         var current_date:Date= Date()
+
 
         if(title.isEmpty()||title.length<3){
             Toast.makeText(this, "Inappropriate input length: Title!!", Toast.LENGTH_LONG).show()
         }else if(content.isEmpty()){
             Toast.makeText(this, "Content file cannot be empty!!", Toast.LENGTH_LONG).show()
         }else{
-            var blogPost=BlogPost(current_date =current_date.toString() , title=title,content=content,topic="a")
+            var blogPost=BlogPost(current_date =current_date.toString() , title=title,content=content,topic=category)
             blogPostViewModel.addBlogPost(blogPost)
             Toast.makeText(this, "Post Created!", Toast.LENGTH_LONG).show()
             playSound()

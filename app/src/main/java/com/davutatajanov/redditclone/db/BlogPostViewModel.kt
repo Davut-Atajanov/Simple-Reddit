@@ -64,4 +64,10 @@ class BlogPostViewModel(application:Application):AndroidViewModel(application) {
             repository.updateBlogPost(BlogPost)
         }
     }
+
+    fun getAllBlogPosts(){
+        viewModelScope.launch(Dispatchers.IO){ // that code will be run in background thread, coroutine scope
+            repository.getAllBlogPosts()
+        }
+    }
 }
