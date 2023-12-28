@@ -8,10 +8,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <nl.dionsegijn.konfetti.KonfettiView
-        android:id="@+id/viewKonfetti"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+
 
     <ImageView
         android:id="@+id/imageView3"
@@ -84,5 +81,10 @@
         app:layout_constraintVertical_bias="0.884"
         app:srcCompat="@drawable/btn_wrapper"
         android:src="@drawable/feed"/>
+
+    <nl.dionsegijn.konfetti.KonfettiView
+        android:id="@+id/viewKonfetti"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

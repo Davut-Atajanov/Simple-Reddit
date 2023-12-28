@@ -1,6 +1,7 @@
 package com.davutatajanov.redditclone
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import android.os.Bundle
@@ -18,6 +19,9 @@ import com.davutatajanov.redditclone.posts.RetrofitService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import nl.dionsegijn.konfetti.KonfettiView
+import nl.dionsegijn.konfetti.models.Shape
+import nl.dionsegijn.konfetti.models.Size
 import java.util.Collections
 
 
@@ -66,6 +70,18 @@ class MainActivity : AppCompatActivity() {
                 println("There was an error in getting json file")
             }
         }
+
+        val konfettiView = findViewById<KonfettiView>(R.id.viewKonfetti)
+        konfettiView.build()
+            .addColors(Color.YELLOW, Color.GREEN, Color.MAGENTA)
+            .setDirection(0.0, 359.0)
+            .setSpeed(1f, 5f)
+            .setFadeOutEnabled(true)
+            .setTimeToLive(2000L)
+            .addShapes(Shape.RECT, Shape.CIRCLE)
+            .addSizes(Size(12), Size(16, 6f))
+            .setPosition(-50f, konfettiView.width + 50f, -50f, -50f)
+            .streamFor(300, 5000L)
     }
 
     fun prepareData() {
