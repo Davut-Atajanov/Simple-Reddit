@@ -15,10 +15,11 @@ import com.davutatajanov.redditclone.posts.PostModel
 
 
 class CustomRecyclerViewAdapter(private val context: Context):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var recyclerItemValues = emptyList<PostModel>()
+    private var recyclerItemValues: MutableList<PostModel> = mutableListOf()
     fun setData(items:List<PostModel>){
-        recyclerItemValues = items
+        recyclerItemValues.addAll(items)
         notifyDataSetChanged()
+
     }
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val itemView: View

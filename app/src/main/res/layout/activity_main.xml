@@ -8,6 +8,11 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <nl.dionsegijn.konfetti.KonfettiView
+        android:id="@+id/viewKonfetti"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="197dp"
