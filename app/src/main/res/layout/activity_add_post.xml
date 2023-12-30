@@ -61,7 +61,9 @@
         android:layout_below="@id/etPostContent"
         android:layout_marginTop="8dp"
         android:background="@drawable/text_bg"
+        android:popupBackground="@drawable/dropdown_background"
         android:entries="@array/categories"
+        android:dropDownWidth="400dp"
         android:padding="12dp" />
 
     <!-- Back Button -->
@@ -110,6 +112,7 @@
     <nl.dionsegijn.konfetti.KonfettiView
         android:id="@+id/viewKonfetti"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:foregroundGravity="center" />
 
 </RelativeLayout>

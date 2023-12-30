@@ -1,6 +1,7 @@
 package com.davutatajanov.redditclone.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,6 +33,7 @@ class CategoryFragment : Fragment() {
         blogPostViewModel = ViewModelProvider(requireActivity()).get(BlogPostViewModel::class.java)
         blogPostViewModel.readAllData.observe(viewLifecycleOwner, Observer { posts ->
             val uniqueCategories = posts.distinctBy { it.topic }.map { it.topic }
+            Log.d("CategoryFragment", "Unique Categories: $uniqueCategories")
             val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, uniqueCategories)
             listView.adapter = adapter
         })

@@ -27,7 +27,6 @@ class Feed : AppCompatActivity() , GestureDetector.OnGestureListener,
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         getSupportActionBar()?.hide()
-        setContentView(R.layout.activity_feed)
         getWindow().setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN

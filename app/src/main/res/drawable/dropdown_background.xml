@@ -1,0 +1,4 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#77b5d9"/> <!-- Replace with your desired color -->
+    <corners android:radius="15dp"/> <!-- Adjust the radius for the desired roundness -->
+</shape>
